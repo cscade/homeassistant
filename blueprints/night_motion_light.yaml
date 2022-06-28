@@ -30,9 +30,8 @@ blueprint:
     light_target:
       name: Light
       selector:
-        target:
-          entity:
-            domain: light
+        entity:
+          domain: light
     light_brightness:
       name: Light Brightness
       description: How bright would you like the light to be?
@@ -74,8 +73,9 @@ condition:
 action:
   - alias: "Turn on the light"
     service: light.turn_on
-    data:
+    target:
       entity_id: !input light_target
+    data:
       brightness_pct: !input light_brightness
   - alias: "Wait until there is no motion from device"
     wait_for_trigger:
