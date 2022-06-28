@@ -33,6 +33,16 @@ blueprint:
         target:
           entity:
             domain: light
+    light_brightness:
+      name: Light Brightness
+      description: How bright would you like the light to be?
+      default: 255
+      selector:
+        number:
+          min: 0
+          max: 255
+          step: 1
+          mode: slider
     no_motion_wait:
       name: Wait Time
       description: Time to leave the light on after last motion is detected.
@@ -64,6 +74,8 @@ action:
   - alias: "Turn on the light"
     service: light.turn_on
     target: !input light_target
+      data:
+        brightness: light_brightness
   - alias: "Wait until there is no motion from device"
     wait_for_trigger:
       platform: state
