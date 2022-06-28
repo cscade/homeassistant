@@ -2,6 +2,7 @@ blueprint:
   name: Night-only Motion-activated Light
   description: Turn on a light when motion is detected, but only after dark.
   domain: automation
+  source_url: https://github.com/cscade/homeassistant/blob/main/blueprints/night_motion_light.yaml
   input:
     motion_entity:
       name: Motion Sensor
