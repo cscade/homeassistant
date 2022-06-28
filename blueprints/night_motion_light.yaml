@@ -74,8 +74,8 @@ action:
   - alias: "Turn on the light"
     service: light.turn_on
     target: !input light_target
-      data:
-        brightness: light_brightness
+    data:
+      brightness: light_brightness
   - alias: "Wait until there is no motion from device"
     wait_for_trigger:
       platform: state
